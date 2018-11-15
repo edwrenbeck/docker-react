@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t edwrenbeck/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run edwrenbeck/docker-react npm run test -- --coverage
